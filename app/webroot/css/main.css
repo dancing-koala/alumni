@@ -42,7 +42,7 @@ body,
 }
 
 #options-btn:hover,
-#options nav .navbar-brand:hover {
+#options nav {
     cursor: pointer;
 }
 

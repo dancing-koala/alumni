@@ -33,7 +33,7 @@
             </nav>
         </div>
 
-        <div id="content"  class="container">
+        <div id="content" class="container">
             <?php echo $this->Flash->render(); ?>
             <?php echo $this->fetch('content'); ?>
         </div>
@@ -44,8 +44,9 @@
 
     <div id="options" v-bind:class="{'left-shift' : showOptions}">
 
-        <nav class="navbar">
-            <span class="glyphicon glyphicon-menu-left navbar-brand" v-on:click="toggleOptions"></span>
+        <nav class="navbar btn-default" v-on:click="toggleOptions">
+            <span class="glyphicon glyphicon-menu-left navbar-brand"></span>
+            <span class="glyphicon glyphicon-menu-left navbar-brand pull-right"></span>
         </nav>
 
         <ul class="nav nav-pills nav-stacked">
