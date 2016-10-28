@@ -1,1 +1,32 @@
-<h2><?= $student['Student']['firstname'] . " " . $student['Student']['lastname'] ?></h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2 class="center-block text-center"><?= $student['Student']['firstname'] . " " . $student['Student']['lastname'] ?></h2>
+
+        <div class="center-block text-right">
+            <?= $this->Html->link(
+                '',
+                array('action' => 'edit', $student['Student']['id']),
+                array('class' => 'glyphicon glyphicon glyphicon-pencil')
+            ); ?>
+        </div>
+
+        <ul class="infos">
+            <li>
+                Né(e) le
+                <?= $this->Time->format('d/m/Y', $student['Student']['birthdate']); ?>
+            </li>
+            <li>
+                Actuellement inscrit :
+                <?= $student['Student']['is_registered'] ? 'Oui' : 'Non'; ?>
+            </li>
+            <li>
+                Créé(e) le
+                <?= $this->Time->format($student['Student']['created'], '%d/%m/%Y à %H:%M:%S'); ?>
+            </li>
+            <li>
+                Dernièrement modifié le
+                <?= $this->Time->format($student['Student']['modified'], '%d/%m/%Y à %H:%M:%S'); ?>
+            </li>
+        </ul>
+    </div>
+</div>
