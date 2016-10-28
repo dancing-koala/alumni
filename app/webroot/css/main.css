@@ -73,6 +73,11 @@ form .checkbox > input[type=checkbox] {
     margin-left: 0;
 }
 
+ul.pagination > li {
+    display: inline-block;
+    margin-top: 32px;
+}
+
 .windsong {
     font-family: Windsong, serif;
 }

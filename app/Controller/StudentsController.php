@@ -10,11 +10,20 @@ class StudentsController extends AppController
     const STUDENT_NOT_DELETED = "L'élève n'a pas pu être supprimé.";
 
     public $helpers = array('Html', 'Form', 'Flash');
-    public $components = array('Flash');
+    public $components = array('Flash', 'Paginator');
+
+    public $paginate = array(
+        'limit' => 1,
+        'order' => array('Student.lastname' => 'asc')
+    );
 
     public function index()
     {
-        $this->set('students', $this->Student->find('all'));
+        $this->Paginator->settings = $this->paginate;
+
+        $data = $this->Paginator->paginate('Student');
+
+        $this->set('students', $data);
     }
 
     public function view($id = null)

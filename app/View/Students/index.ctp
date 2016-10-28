@@ -9,8 +9,8 @@
 <table class="table table-bordered table-condensed table-hover">
     <tr>
         <th class="text-center">ID</th>
-        <th class="text-center">Prénom</th>
         <th class="text-center">Nom</th>
+        <th class="text-center">Prénom</th>
         <th class="text-center">Date de naissance</th>
         <th class="text-center">Est inscrit</th>
         <th class="text-center">Actions</th>
@@ -19,8 +19,8 @@
 
         <tr>
             <td><?= $student['Student']['id'] ?></td>
-            <td><?= $student['Student']['firstname'] ?></td>
             <td><?= $student['Student']['lastname'] ?></td>
+            <td><?= $student['Student']['firstname'] ?></td>
             <td class="text-center"><?= $this->Time->format('d/m/Y', $student['Student']['birthdate']) ?></td>
             <td class="text-center">
 
@@ -28,7 +28,7 @@
                     class="glyphicon <?= $student['Student']['is_registered'] ? 'glyphicon-ok-circle' : 'glyphicon-remove-circle' ?>"></span>
 
             </td>
-            <td  class="text-center">
+            <td class="text-center">
                 <?= $this->Html->link(
                     '',
                     array('action' => 'view', $student['Student']['id']),
@@ -54,3 +54,16 @@
 
     <?php unset($student); ?>
 </table>
+
+<ul class="pagination center-block text-center">
+    <?= $this->Paginator->numbers(
+        array(
+            'tag' => 'li',
+            'separator' => null,
+            'currentTag' => 'span',
+            'class' => '',
+            'currentClass' => 'active'
+        )
+    ); ?>
+</ul>
+
