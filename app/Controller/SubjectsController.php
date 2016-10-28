@@ -14,7 +14,7 @@ class SubjectsController extends AppController
 
     public $paginate = array(
         'limit' => 10,
-        'order' => array('Student.lastname' => 'asc')
+        'order' => array('Subject.name' => 'asc')
     );
 
     public function index()
@@ -22,8 +22,6 @@ class SubjectsController extends AppController
         $this->Paginator->settings = $this->paginate;
 
         $data = $this->Paginator->paginate('Subject');
-
-        $this->set('students', $data);
 
         $this->set('subjects', $data);
     }
