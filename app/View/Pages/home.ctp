@@ -1,3 +1,3 @@
-<p><a href="/students/index">Gérer les élèves</a></p>
-<p><a href="/subjects/index">Gérer les matières</a></p>
-<p><a href="/marks/index">Gérer les notes</a></p>
+<p><?= $this->Html->link('Gérer les élèves', array('controller' => 'students', 'action' => 'index')) ?></p>
+<p><?= $this->Html->link('Gérer les matières', array('controller' => 'subjects', 'action' => 'index')) ?></p>
+<p><?= $this->Html->link('Gérer les notes', array('controller' => 'marks', 'action' => 'index')) ?></p>

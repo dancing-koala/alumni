@@ -49,14 +49,13 @@
         </nav>
 
         <ul class="nav nav-pills nav-stacked">
-            <li><a href="/students/index#" class="">Gestion des élèves</a></li>
-            <li><a href="/subjects/index#" class="">Gestion des matières</a></li>
-            <li><a href="/marks/index#" class="">Gestion des notes</a></li>
+            <li><?= $this->Html->link('Gérer les élèves', array('controller' => 'students', 'action' => 'index')) ?></li>
+            <li><?= $this->Html->link('Gérer les matières', array('controller' => 'subjects', 'action' => 'index')) ?></li>
+            <li><?= $this->Html->link('Gérer les notes', array('controller' => 'marks', 'action' => 'index')) ?></li>
         </ul>
-
     </div>
-
 </div>
+
 <?= $this->element('sql_dump'); ?>
 <?= $this->Html->script('vuejs/vue.min'); ?>
 <?= $this->Html->script('app'); ?>

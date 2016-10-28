@@ -57,12 +57,16 @@ body,
     left: -262px;
     position: absolute;
     width: 250px;
-    box-shadow: -2px -2px 10px 2px #cccccc;
+    box-shadow: -2px 4px 10px 2px #cccccc;
     transition: left .25s, top .25s;
 }
 
 #options.left-shift {
     left: 0;
+}
+
+form .checkbox > input[type=checkbox] {
+    margin-left: 0;
 }
 
 .windsong {
