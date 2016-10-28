@@ -23,9 +23,13 @@
             <td><?= $student['Student']['created'] ?></td>
             <td><?= $student['Student']['modified'] ?></td>
             <td>
-                <?= $this->Html->link('Voir', array('action' => 'view', $student['Student']['id'])) ?>
-                <?= $this->Html->link('Éditer', array('action' => 'edit', $student['Student']['id'])) ?>
-                <?= $this->Html->link('Supprimer', array('action' => 'delete', $student['Student']['id'])) ?>
+                <?= $this->Html->link('Voir', array('action' => 'view', $student['Student']['id'])); ?>
+                <?= $this->Html->link('Éditer', array('action' => 'edit', $student['Student']['id'])); ?>
+                <?= $this->Form->postLink(
+                    'Supprimer',
+                    array('action' => 'delete', $student['Student']['id']),
+                    array('confirm' => 'Souhaitez-vous vraiment supprimer cet élève ?')
+                ); ?>
             </td>
         </tr>
 

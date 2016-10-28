@@ -5,6 +5,8 @@ class StudentsController extends AppController
     const STUDENT_NOT_FOUND = "Élève non trouvé.";
     const STUDENT_CREATED = "L'élève a été créé avec succès.";
     const STUDENT_EDITED = "L'élève a été modifié avec succès.";
+    const STUDENT_DELETED = "L'élève a été supprimé.";
+    const STUDENT_NOT_DELETED = "L'élève n'a pu être supprimé.";
 
     public $helpers = array('Html', 'Form', 'Flash');
     public $components = array('Flash');
@@ -57,5 +59,18 @@ class StudentsController extends AppController
         if (!$this->request->data) {
             $this->request->data = $student;
         }
+    }
+
+    public function delete($id)
+    {
+        if ($this->request->is('get')) throw new MethodNotAllowedException();
+
+        if ($this->Student->delete($id)) {
+            $this->Flash->success(self::STUDENT_DELETED);
+        } else {
+            $this->Flash->error(self::STUDENT_NOT_DELETED);
+        }
+
+        return $this->redirect(array('action' => 'index'));
     }
 }
