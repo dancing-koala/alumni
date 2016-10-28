@@ -48,9 +48,9 @@
         </nav>
 
         <ul class="nav nav-pills nav-stacked">
-            <li><a href="#" class="">Gestion des élèves</a></li>
-            <li><a href="#" class="">Gestion des matières</a></li>
-            <li><a href="#" class="">Gestion des notes</a></li>
+            <li><a href="/students/index#" class="">Gestion des élèves</a></li>
+            <li><a href="/subjects/index#" class="">Gestion des matières</a></li>
+            <li><a href="/marks/index#" class="">Gestion des notes</a></li>
         </ul>
 
     </div>
