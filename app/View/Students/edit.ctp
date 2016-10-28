@@ -10,4 +10,5 @@ echo $this->Form->input('birthdate', array(
     'maxYear' => date('Y'),
 ));
 echo $this->Form->input('is_registered', array('label' => 'L\'élève est inscrit', 'type' => 'checkbox'));
+echo $this->Form->input('id', array('type' => 'hidden'));
 echo $this->Form->end('Sauvegarder');

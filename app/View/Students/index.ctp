@@ -10,6 +10,7 @@
         <th>Est inscrit</th>
         <th>Création</th>
         <th>Modification</th>
+        <th>Actions</th>
     </tr>
     <?php foreach ($students as $student): ?>
 
@@ -21,6 +22,11 @@
             <td><?= $student['Student']['is_registered'] ?></td>
             <td><?= $student['Student']['created'] ?></td>
             <td><?= $student['Student']['modified'] ?></td>
+            <td>
+                <?= $this->Html->link('Voir', array('action' => 'view', $student['Student']['id'])) ?>
+                <?= $this->Html->link('Éditer', array('action' => 'edit', $student['Student']['id'])) ?>
+                <?= $this->Html->link('Supprimer', array('action' => 'delete', $student['Student']['id'])) ?>
+            </td>
         </tr>
 
     <?php endforeach; ?>
