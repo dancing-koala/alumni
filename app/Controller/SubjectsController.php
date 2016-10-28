@@ -10,11 +10,22 @@ class SubjectsController extends AppController
     const SUBJECT_NOT_DELETED = "La matière n'a pas pu être supprimée.";
 
     public $helpers = array('Html', 'Form', 'Flash');
-    public $components = array('Flash');
+    public $components = array('Flash', 'Paginator');
+
+    public $paginate = array(
+        'limit' => 10,
+        'order' => array('Student.lastname' => 'asc')
+    );
 
     public function index()
     {
-        $this->set('subjects', $this->Subject->find('all'));
+        $this->Paginator->settings = $this->paginate;
+
+        $data = $this->Paginator->paginate('Subject');
+
+        $this->set('students', $data);
+
+        $this->set('subjects', $data);
     }
 
     public function view($id = null)

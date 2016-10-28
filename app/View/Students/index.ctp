@@ -24,8 +24,8 @@
             <td class="text-center"><?= $this->Time->format('d/m/Y', $student['Student']['birthdate']) ?></td>
             <td class="text-center">
 
-                <span
-                    class="glyphicon <?= $student['Student']['is_registered'] ? 'glyphicon-ok-circle' : 'glyphicon-remove-circle' ?>"></span>
+                <span class="glyphicon glyphicon-<?= $student['Student']['is_registered'] ? 'ok' : 'remove' ?>-circle">
+                </span>
 
             </td>
             <td class="text-center">
