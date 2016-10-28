@@ -26,13 +26,14 @@ CREATE TABLE subjects (
 
 # Table containing the students' marks for all subjects
 CREATE TABLE marks (
+  id         INTEGER(10) UNSIGNED NOT NULL AUTO_INCREMENT, # Identifier of the subject
   student_id INTEGER(10) UNSIGNED NOT NULL, # Identifier of the student
   subject_id INTEGER(10) UNSIGNED NOT NULL, # Identifier of the subject
   mark       INTEGER(2)           NOT NULL DEFAULT 0, # Mark
   is_valid   BOOLEAN              NOT NULL DEFAULT 1, # True if the mark is valid. Can be useful if a teacher wants to keep the record of a mark considered invalid.
   created    DATETIME             NOT NULL, # Creation timestamp
   modified   DATETIME             NOT NULL, # Last modification timestamp
-  PRIMARY KEY (student_id, subject_id),
+  PRIMARY KEY (id),
   FOREIGN KEY (student_id) REFERENCES students (id),
   FOREIGN KEY (subject_id) REFERENCES subjects (id)
 );
