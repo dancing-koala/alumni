@@ -21,7 +21,7 @@ class SubjectsController extends AppController
     {
         if (!$id) throw new NotFoundException(self::SUBJECT_NOT_FOUND);
 
-        $subject = $this->Subject->find($id);
+        $subject = $this->Subject->findById($id);
 
         if (!$subject) throw new NotFoundException(self::SUBJECT_NOT_FOUND);
 
@@ -44,11 +44,11 @@ class SubjectsController extends AppController
     {
         if (!$id) throw new NotFoundException(self::SUBJECT_NOT_FOUND);
 
-        $subject = $this->Subject->find($id);
+        $subject = $this->Subject->findById($id);
 
         if (!$subject) throw new NotFoundException(self::SUBJECT_NOT_FOUND);
 
-        if ($this->request->is('post', 'put')) {
+        if ($this->request->is(array('post', 'put'))) {
             $this->Subject->id = $id;
 
             if ($this->Subject->save($this->request->data)) {
@@ -57,6 +57,10 @@ class SubjectsController extends AppController
             } else {
                 $this->Flash->error(self::SUBJECT_NOT_EDITED);
             }
+        }
+
+        if (!$this->request->data) {
+            $this->request->data = $subject;
         }
     }
 
