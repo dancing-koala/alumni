@@ -70,7 +70,14 @@ table.table {
 }
 
 form .checkbox > input[type=checkbox] {
-    margin-left: 0;
+    margin: 0;
+}
+
+select.form-control {
+    width: auto;
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
 }
 
 ul.pagination > li {
