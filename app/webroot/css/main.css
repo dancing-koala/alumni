@@ -65,6 +65,10 @@ body,
     left: 0;
 }
 
+table.table {
+    margin-top: 20px;
+}
+
 form .checkbox > input[type=checkbox] {
     margin-left: 0;
 }
@@ -75,4 +79,10 @@ form .checkbox > input[type=checkbox] {
 
 .hide-overflow {
     overflow: hidden;
+}
+
+.student-thumbnail {
+    border-radius: 4px;
+    height: 72px;
+    width: 72px;
 }

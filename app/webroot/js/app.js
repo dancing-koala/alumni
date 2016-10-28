@@ -11,4 +11,3 @@ var alumniApp = new Vue({
         }
     }
 });
-

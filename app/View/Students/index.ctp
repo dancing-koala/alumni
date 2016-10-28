@@ -1,16 +1,19 @@
-<h1>Élèves</h1>
+<h1>Gestion des élèves</h1>
 
-<?= $this->Html->link('Ajouter un élève', array('action' => 'add')) ?>
-<table>
+<?= $this->Html->link(
+    'Ajouter un élève',
+    array('action' => 'add'),
+    array('class' => 'btn btn-primary')
+); ?>
+
+<table class="table table-bordered table-condensed table-hover">
     <tr>
-        <th>ID</th>
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>Date de naissance</th>
-        <th>Est inscrit</th>
-        <th>Création</th>
-        <th>Modification</th>
-        <th>Actions</th>
+        <th class="text-center">ID</th>
+        <th class="text-center">Prénom</th>
+        <th class="text-center">Nom</th>
+        <th class="text-center">Date de naissance</th>
+        <th class="text-center">Est inscrit</th>
+        <th class="text-center">Actions</th>
     </tr>
     <?php foreach ($students as $student): ?>
 
@@ -18,17 +21,31 @@
             <td><?= $student['Student']['id'] ?></td>
             <td><?= $student['Student']['firstname'] ?></td>
             <td><?= $student['Student']['lastname'] ?></td>
-            <td><?= $student['Student']['birthdate'] ?></td>
-            <td><?= $student['Student']['is_registered'] ?></td>
-            <td><?= $student['Student']['created'] ?></td>
-            <td><?= $student['Student']['modified'] ?></td>
-            <td>
-                <?= $this->Html->link('Voir', array('action' => 'view', $student['Student']['id'])); ?>
-                <?= $this->Html->link('Éditer', array('action' => 'edit', $student['Student']['id'])); ?>
+            <td class="text-center"><?= $this->Time->format('d/m/Y', $student['Student']['birthdate']) ?></td>
+            <td class="text-center">
+
+                <span
+                    class="glyphicon <?= $student['Student']['is_registered'] ? 'glyphicon-ok-circle' : 'glyphicon-remove-circle' ?>"></span>
+
+            </td>
+            <td  class="text-center">
+                <?= $this->Html->link(
+                    '',
+                    array('action' => 'view', $student['Student']['id']),
+                    array('class' => 'glyphicon glyphicon-eye-open')
+                ); ?>
+                <?= $this->Html->link(
+                    '',
+                    array('action' => 'edit', $student['Student']['id']),
+                    array('class' => 'glyphicon glyphicon glyphicon-pencil')
+                ); ?>
                 <?= $this->Form->postLink(
-                    'Supprimer',
+                    '',
                     array('action' => 'delete', $student['Student']['id']),
-                    array('confirm' => 'Souhaitez-vous vraiment supprimer cet élève ?')
+                    array(
+                        'confirm' => 'Souhaitez-vous vraiment supprimer cet élève ?',
+                        'class' => 'glyphicon glyphicon-trash'
+                    )
                 ); ?>
             </td>
         </tr>

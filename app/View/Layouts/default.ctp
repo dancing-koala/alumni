@@ -33,7 +33,7 @@
             </nav>
         </div>
 
-        <div id="content">
+        <div id="content"  class="container">
             <?php echo $this->Flash->render(); ?>
             <?php echo $this->fetch('content'); ?>
         </div>
