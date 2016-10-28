@@ -40,7 +40,7 @@
                     '',
                     array('action' => 'delete', $mark['Mark']['id']),
                     array(
-                        'confirm' => 'Souhaitez-vous vraiment supprimer cet élève ?',
+                        'confirm' => 'Souhaitez-vous vraiment supprimer cette note ?',
                         'class' => 'glyphicon glyphicon-trash'
                     )
                 ); ?>

@@ -20,9 +20,9 @@
             <?= $this->Form->input(
                 'is_registered',
                 array(
-                    'label' => 'L\'élève est inscrit',
+                    'label' => 'L\'élève est inscrit.',
                     'type' => 'checkbox',
-                    'class' => 'checkbox well well-sm')
+                    'class' => 'checkbox')
             ); ?>
         </div>
 
