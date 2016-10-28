@@ -13,7 +13,7 @@ class StudentsController extends AppController
     public $components = array('Flash', 'Paginator');
 
     public $paginate = array(
-        'limit' => 1,
+        'limit' => 10,
         'order' => array('Student.lastname' => 'asc')
     );
 

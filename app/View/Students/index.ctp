@@ -11,7 +11,7 @@
         <th class="text-center">ID</th>
         <th class="text-center">Nom</th>
         <th class="text-center">Prénom</th>
-        <th class="text-center">Date de naissance</th>
+        <th class="text-center">Né(e) le</th>
         <th class="text-center">Est inscrit</th>
         <th class="text-center">Actions</th>
     </tr>
@@ -46,6 +46,11 @@
                         'confirm' => 'Souhaitez-vous vraiment supprimer cet élève ?',
                         'class' => 'glyphicon glyphicon-trash'
                     )
+                ); ?>
+                <?= $this->Html->link(
+                    '',
+                    array('controller' => 'marks', 'action' => 'add', $student['Student']['id']),
+                    array('class' => 'glyphicon glyphicon glyphicon-plus')
                 ); ?>
             </td>
         </tr>
