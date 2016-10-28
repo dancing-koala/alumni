@@ -3,10 +3,11 @@
 class StudentsController extends AppController
 {
     const STUDENT_NOT_FOUND = "Élève non trouvé.";
-    const STUDENT_CREATED = "L'élève a été créé avec succès.";
-    const STUDENT_EDITED = "L'élève a été modifié avec succès.";
+    const STUDENT_CREATED = "L'élève a été créé.";
+    const STUDENT_EDITED = "L'élève a été modifié.";
+    const STUDENT_NOT_EDITED = "L'élève n'a pas pu être modifié.";
     const STUDENT_DELETED = "L'élève a été supprimé.";
-    const STUDENT_NOT_DELETED = "L'élève n'a pu être supprimé.";
+    const STUDENT_NOT_DELETED = "L'élève n'a pas pu être supprimé.";
 
     public $helpers = array('Html', 'Form', 'Flash');
     public $components = array('Flash');
@@ -31,7 +32,6 @@ class StudentsController extends AppController
     {
         if ($this->request->is('post')) {
             $this->Student->create();
-
             if ($this->Student->save($this->request->data)) {
                 $this->Flash->success(self::STUDENT_CREATED);
                 return $this->redirect(array('action' => 'index'));
@@ -53,6 +53,8 @@ class StudentsController extends AppController
             if ($this->Student->save($this->request->data)) {
                 $this->Flash->success(self::STUDENT_EDITED);
                 return $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Flash->error(self::STUDENT_NOT_EDITED);
             }
         }
 
