@@ -42,19 +42,8 @@
         </div>
     </div>
 
-    <div id="options" v-bind:class="{'left-shift' : showOptions}">
+    <?= $this->element('Menus/options'); ?>
 
-        <nav class="navbar btn-default" v-on:click="toggleOptions">
-            <span class="glyphicon glyphicon-menu-left navbar-brand"></span>
-            <span class="glyphicon glyphicon-menu-left navbar-brand pull-right"></span>
-        </nav>
-
-        <ul class="nav nav-pills nav-stacked">
-            <li><?= $this->Html->link('Gérer les élèves', array('controller' => 'students', 'action' => 'index')) ?></li>
-            <li><?= $this->Html->link('Gérer les matières', array('controller' => 'subjects', 'action' => 'index')) ?></li>
-            <li><?= $this->Html->link('Gérer les notes', array('controller' => 'marks', 'action' => 'index')) ?></li>
-        </ul>
-    </div>
 </div>
 
 <?= $this->element('sql_dump'); ?>
