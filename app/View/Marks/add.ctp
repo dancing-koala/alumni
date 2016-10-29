@@ -26,7 +26,9 @@ $this->Html->addCrumb('Ajouter une note');
                 array(
                     'label' => 'La note est valide.',
                     'type' => 'checkbox',
-                    'class' => 'checkbox')
+                    'class' => 'checkbox',
+                    'checked' => '1'
+                )
             ); ?>
         </div>
 

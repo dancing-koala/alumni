@@ -18,7 +18,9 @@ $this->Html->addCrumb('Ajouter une matière');
                 array(
                     'label' => 'La matière est enseignée.',
                     'type' => 'checkbox',
-                    'class' => 'checkbox')
+                    'class' => 'checkbox',
+                    'checked' => '1'
+                )
             ); ?>
         </div>
 

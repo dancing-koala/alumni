@@ -41,6 +41,13 @@ $this->Html->addCrumb('Détails de l\'élève');
         <h4 class="text-center">Notes de l'élève</h4>
     </div>
     <div class="panel-body">
+        <p>
+            <?= $this->Html->link(
+                'Ajouter une note',
+                array('controller' => 'marks', 'action' => 'addToStudent', $student['Student']['id']),
+                array('class' => 'btn btn-primary')
+            ); ?>
+        </p>
 
         <?php if ($student['Mark'] && count($student['Mark']) > 0) : ?>
             <?= $this->element('Tables/student-marks', array('marks' => $student['Mark'])) ?>

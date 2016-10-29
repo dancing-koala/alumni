@@ -35,8 +35,16 @@ $this->Html->addCrumb('Détails de la matière');
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="text-center">Notes dans cette matière</h4>
+
     </div>
     <div class="panel-body">
+        <p>
+            <?= $this->Html->link(
+                'Ajouter une note',
+                array('controller' => 'marks', 'action' => 'addToSubject', $subject['Subject']['id']),
+                array('class' => 'btn btn-primary')
+            ); ?>
+        </p>
         <?php if ($subject['Mark'] && count($subject['Mark']) > 0) : ?>
             <?= $this->element('Tables/subject-marks', array('marks' => $subject['Mark'])) ?>
         <?php else: ?>

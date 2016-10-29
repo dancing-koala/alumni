@@ -30,7 +30,9 @@ $this->Html->addCrumb('Ajouter un élève');
                 array(
                     'label' => 'L\'élève est inscrit.',
                     'type' => 'checkbox',
-                    'class' => 'checkbox')
+                    'class' => 'checkbox',
+                    'checked' => '1'
+                )
             ); ?>
         </div>
 
