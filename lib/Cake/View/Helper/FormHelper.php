@@ -723,7 +723,7 @@ class FormHelper extends AppHelper {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/form.html#FormHelper::error
  */
 	public function error($field, $text = null, $options = array()) {
-		$defaults = array('wrap' => true, 'class' => 'error-message', 'escape' => true);
+		$defaults = array('wrap' => true, 'class' => 'error-message alert alert-danger', 'escape' => true);
 		$options += $defaults;
 		$this->setEntity($field);
 
