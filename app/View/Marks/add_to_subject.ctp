@@ -1,25 +1,26 @@
 <?php
 $this->Html->addCrumb('Notes', array('controller' => 'marks', 'action' => 'index'));
-$this->Html->addCrumb('Ajouter une note à un élève');
+$this->Html->addCrumb('Ajouter une note à une matière');
 ?>
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h4 class="text-center">Ajouter une note à un élève</h4>
+        <h4 class="text-center">Ajouter une note à une matière</h4>
     </div>
     <div class="panel-body">
         <?= $this->Form->create('Mark'); ?>
         <div class="form-group">
             <div class="input select">
-                <label class="control-label">Élève : </label>
+                <label class="control-label">Matière : </label>
                 <span class="form-control-static">
-                    <?= $student['Student']['firstname'] . " " . $student['Student']['lastname'] ?>
+                    <?= $subject['Subject']['name'] ?>
                 </span>
             </div>
-            <?= $this->Form->input('student_id', array('type' => 'hidden')); ?>
+            <?= $this->Form->input('subject_id', array('type' => 'hidden')); ?>
         </div>
+
         <div class="form-group">
-            <?= $this->Form->input('subject_id', array('label' => 'Matière', 'class' => 'form-control', 'type' => 'select')); ?>
+            <?= $this->Form->input('student_id', array('label' => 'Élève', 'class' => 'form-control', 'type' => 'select')); ?>
         </div>
 
         <div class="form-group">

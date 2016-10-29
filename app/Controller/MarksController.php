@@ -91,7 +91,7 @@ class MarksController extends AppController
         // We generate a list of mark from 0 to 20
         $marks = $this->Mark->generateMarkList();
 
-        if (!$this->request->data){
+        if (!$this->request->data) {
             $this->request->data = array(
                 'Mark' => array(
                     'student_id' => $studentId
@@ -101,6 +101,43 @@ class MarksController extends AppController
         // We pass the data to the view
         $this->set('subjects', $subjects);
         $this->set('student', $student);
+        $this->set('marks', $marks);
+    }
+
+    public function addToSubject($subjectId = null)
+    {
+        if (!$subjectId) throw new NotFoundException(SubjectsController::SUBJECT_NOT_FOUND);
+
+        // If the request is a post, we attempt to save it as a new Mark
+        if ($this->request->is('post')) {
+            $this->Mark->create();
+            if ($this->Mark->save($this->request->data)) {
+                $this->Flash->success(self::MARK_CREATED);
+                return $this->redirect(array('action' => 'index'));
+            }
+        }
+
+        $subject = $this->Mark->Subject->findById($subjectId);
+
+        if (!$subject) throw new NotFoundException(SubjectsController::SUBJECT_NOT_FOUND);
+
+        // We only retrieve currently registered students ordered by lastname
+        $students = $this->Mark->Student->findRegisteredForList();
+
+        // We generate a list of mark from 0 to 20
+        $marks = $this->Mark->generateMarkList();
+
+        if (!$this->request->data) {
+            $this->request->data = array(
+                'Mark' => array(
+                    'subject_id' => $subjectId
+                )
+            );
+        }
+
+        // We pass the data to the view
+        $this->set('subject', $subject);
+        $this->set('students', $students);
         $this->set('marks', $marks);
     }
 
