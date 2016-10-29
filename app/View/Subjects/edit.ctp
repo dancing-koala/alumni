@@ -1,4 +1,7 @@
 <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="text-center">Modifier une matière</h4>
+    </div>
     <div class="panel-body">
         <?= $this->Form->create('Subject'); ?>
         <div class="form-group">
