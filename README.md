@@ -2,8 +2,7 @@
 
 ## Overview
 Alumni is a very basic student managing web app powered by CakePHP 2.9 developped
-in order to discover [CakePHP](http://www.cakephp.org) and to improve my 
-Test Drive Development Skills with PHP.
+in order to discover [CakePHP](http://www.cakephp.org).
 
 ## External frameworks and libraries
 
