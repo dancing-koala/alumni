@@ -9,8 +9,8 @@
 <table class="table table-bordered table-condensed table-hover">
     <tr>
         <th class="text-center">ID</th>
-        <th class="text-center">Élève ID</th>
-        <th class="text-center">Matière ID</th>
+        <th class="text-center">Élève</th>
+        <th class="text-center">Matière</th>
         <th class="text-center">Note</th>
         <th class="text-center">Est valide</th>
         <th class="text-center">Actions</th>
@@ -18,9 +18,12 @@
     <?php foreach ($marks as $mark): ?>
         <tr>
             <td><?= $mark['Mark']['id'] ?></td>
-            <td><?= $mark['Mark']['student_id'] ?></td>
-            <td><?= $mark['Mark']['subject_id'] ?></td>
-            <td><?= $mark['Mark']['mark'] ?></td>
+            <td><?= $mark['Student']['firstname'] . " " . $mark['Student']['lastname'] ?></td>
+            <td><?= $mark['Subject']['name'] ?></td>
+            <td><?= sprintf(
+                    "%02d / 20",
+                    $mark['Mark']['mark']
+                ); ?></td>
             <td class="text-center">
                 <span class="glyphicon glyphicon-<?= $mark['Mark']['is_valid'] ? 'ok' : 'remove' ?>-circle">
                 </span>
