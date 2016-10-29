@@ -29,6 +29,17 @@ class MarksController extends AppController
         $this->set('marks', $data);
     }
 
+    public function view($id = null)
+    {
+        if (!$id) throw new NotFoundException(self::MARK_NOT_FOUND);
+
+        $mark = $this->Mark->findById($id);
+
+        if (!$mark) throw new NotFoundException(self::MARK_NOT_FOUND);
+
+        $this->set('mark', $mark);
+    }
+
     public function add()
     {
         // If the request is a post, we attempt to save it as a new Mark

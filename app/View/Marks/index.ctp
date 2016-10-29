@@ -36,19 +36,6 @@
                     array('action' => 'edit', $mark['Mark']['id']),
                     array('class' => 'glyphicon glyphicon glyphicon-pencil')
                 ); ?>
-                <?= $this->Form->postLink(
-                    '',
-                    array('action' => 'delete', $mark['Mark']['id']),
-                    array(
-                        'confirm' => 'Souhaitez-vous vraiment supprimer cette note ?',
-                        'class' => 'glyphicon glyphicon-trash'
-                    )
-                ); ?>
-                <?= $this->Html->link(
-                    '',
-                    array('controller' => 'marks', 'action' => 'add', $mark['Mark']['id']),
-                    array('class' => 'glyphicon glyphicon glyphicon-plus')
-                ); ?>
             </td>
         </tr>
 
