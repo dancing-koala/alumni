@@ -35,3 +35,19 @@ $this->Html->addCrumb('Détails de l\'élève');
         </ul>
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="text-center">Notes de l'élève</h4>
+    </div>
+    <div class="panel-body">
+
+        <?php if ($student['Mark'] && count($student['Mark']) > 0) : ?>
+            <?= $this->element('Tables/student-marks', array('marks' => $student['Mark'])) ?>
+        <?php else: ?>
+            <h3 class="text-center">Aucune note pour cet élève.</h3>
+        <?php endif ?>
+
+    </div>
+</div>
+

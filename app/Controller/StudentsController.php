@@ -30,7 +30,13 @@ class StudentsController extends AppController
     {
         if (!$id) throw new NotFoundException(self::STUDENT_NOT_FOUND);
 
-        $student = $this->Student->findById($id);
+        $student = $this->Student->find(
+            'first',
+            array(
+                'conditions' => array('Student.id' => $id),
+                'recursive' => 2
+            )
+        );
 
         if (!$student) throw new NotFoundException(self::STUDENT_NOT_FOUND);
 
