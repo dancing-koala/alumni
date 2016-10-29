@@ -37,7 +37,7 @@
                 ); ?>
                 <?= $this->Html->link(
                     '',
-                    array('controller' => 'marks', 'action' => 'add', $student['Student']['id']),
+                    array('controller' => 'marks', 'action' => 'addToStudent', $student['Student']['id']),
                     array('class' => 'glyphicon glyphicon glyphicon-plus')
                 ); ?>
             </td>
