@@ -17,8 +17,14 @@ class Subject extends AppModel
 
     public $validate = array(
         'name' => array(
-            'rule' => 'notBlank',
-            'message' => 'Vous devez attribuer un nom à la matière !'
+            'notBlank' => array(
+                'rule' => 'notBlank',
+                'message' => 'Vous devez attribuer un nom à la matière!'
+            ),
+            'isUnique' => array(
+                'rule' => 'isUnique',
+                'message' => 'Une matière avec ce nom existe déjà.'
+            )
         )
     );
 
