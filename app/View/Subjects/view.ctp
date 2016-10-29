@@ -31,3 +31,17 @@ $this->Html->addCrumb('Détails de la matière');
         </ul>
     </div>
 </div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="text-center">Notes dans cette matière</h4>
+    </div>
+    <div class="panel-body">
+        <?php if ($subject['Mark'] && count($subject['Mark']) > 0) : ?>
+            <?= $this->element('Tables/subject-marks', array('marks' => $subject['Mark'])) ?>
+        <?php else: ?>
+            <h3 class="text-center">Aucune note dans cette matière.</h3>
+        <?php endif ?>
+
+    </div>
+</div>
