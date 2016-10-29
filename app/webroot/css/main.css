@@ -9,17 +9,15 @@ body {
     padding: 0;
 }
 
-html,
-body,
-#alumni-app,
-#container {
+html {
+    background: white;
     height: 100%;
     width: 100%;
 }
 
 #alumni-app {
-    background-color: #e7e7e7;
     position: relative;
+    width: 100%;
 }
 
 #header > nav.navbar {
@@ -53,6 +51,7 @@ body,
 #container {
     background: white;
     position: absolute;
+    width: 100%;
 }
 
 #options {
@@ -91,10 +90,6 @@ ul.pagination > li {
 
 .windsong {
     font-family: Windsong, serif;
-}
-
-.hide-overflow {
-    overflow: hidden;
 }
 
 .student-thumbnail {

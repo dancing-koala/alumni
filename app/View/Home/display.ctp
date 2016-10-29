@@ -11,7 +11,6 @@
 
         <?= $this->element('Tables/mark', array('mark' => $marks)); ?>
     </div>
-
 </div>
 
 <div class="panel panel-default">
@@ -27,7 +26,6 @@
 
         <?= $this->element('Tables/subject', array('subject' => $subjects)); ?>
     </div>
-
 </div>
 
 <div class="panel panel-default">
@@ -43,8 +41,4 @@
 
         <?= $this->element('Tables/student', array('students' => $students)); ?>
     </div>
-
 </div>
-
-<p><?= $this->Html->link('Gérer les matières', array('controller' => 'subjects', 'action' => 'index')) ?></p>
-<p><?= $this->Html->link('Gérer les notes', array('controller' => 'marks', 'action' => 'index')) ?></p>

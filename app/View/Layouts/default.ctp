@@ -7,10 +7,8 @@
     <?php
     echo $this->Html->meta('icon');
 
-    //    echo $this->Html->css('cake.generic');
     echo $this->Html->css('bootstrap/css/bootstrap.min');
     echo $this->Html->css('main');
-
 
     echo $this->fetch('meta');
     echo $this->fetch('css');
@@ -18,8 +16,7 @@
     ?>
 </head>
 <body>
-<div id="alumni-app" v-bind:class="{'hide-overflow' : showOptions}">
-
+<div id="alumni-app">
     <div id="container">
         <div id="header">
             <nav class="navbar navbar-default text-center">
