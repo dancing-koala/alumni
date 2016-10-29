@@ -14,4 +14,17 @@ class Subject extends AppModel
             'dependent' => true
         )
     );
+
+    public function findAvailableForList()
+    {
+        $subjects = $this->Mark->Subject->find(
+            'list',
+            array(
+                'conditions' => array('Subject.is_available' => '1'),
+                'order' => array('Subject.name' => 'asc')
+            )
+        );
+
+        return $subjects;
+    }
 }

@@ -1,5 +1,7 @@
 <?php
 
+App::uses('CakeTime', 'Utility');
+
 class MarksController extends AppController
 {
     const MARK_NOT_FOUND = "Note non trouvée.";
@@ -19,11 +21,38 @@ class MarksController extends AppController
 
     public function index()
     {
+        // We set the pagination as limiting 10 items and ordering by modification time
         $this->Paginator->settings = $this->paginate;
 
         $data = $this->Paginator->paginate('Mark');
 
         $this->set('marks', $data);
+    }
+
+    public function add()
+    {
+        // If the request is a post, we attempt to save it as a new Mark
+        if ($this->request->is('post')) {
+            $this->Mark->create();
+            if ($this->Mark->save($this->request->data)) {
+                $this->Flash->success(self::MARK_CREATED);
+                return $this->redirect(array('action' => 'index'));
+            }
+        }
+
+        // We only retrieve currently registered students ordered by lastname
+        $students = $this->Mark->Student->findRegisteredForList();
+
+        // We only retrieve currently available subjects ordered by name
+        $subjects = $this->Mark->Subject->findAvailableForList();
+
+        // We generate a list of mark from 0 to 20
+        $marks = $this->Mark->generateMarkList();
+
+        // We pass the data to the view
+        $this->set('subjects', $subjects);
+        $this->set('students', $students);
+        $this->set('marks', $marks);
     }
 
 }

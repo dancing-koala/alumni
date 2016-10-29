@@ -17,4 +17,15 @@ class Mark extends AppModel
             'foreignKey' => 'subject_id'
         )
     );
+
+    public function generateMarkList()
+    {
+        $marks = array();
+
+        for ($i = 0; $i < 21; $i++) {
+            array_push($marks, $i);
+        }
+
+        return $marks;
+    }
 }
