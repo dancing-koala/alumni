@@ -93,4 +93,24 @@ class SubjectsController extends AppController
 
         return $this->redirect(array('action' => 'index'));
     }
+
+    public function populateSubjects()
+    {
+        $this->Subject->deleteAll(array('1=1', true));
+
+        $subjects = array(
+            array('name' => "Économie"),
+            array('name' => "Anglais"),
+            array('name' => "Français"),
+            array('name' => "Informatique"),
+            array('name' => "Histoire")
+        );
+
+        foreach ($subjects as $subject) {
+            $this->Subject->create();
+            $this->Subject->save($subject);
+        }
+
+        return $this->redirect(array('controller' => 'home', 'action' => 'display'));
+    }
 }

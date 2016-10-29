@@ -180,4 +180,34 @@ class MarksController extends AppController
         $this->set('marks', $marks);
     }
 
+    public function populateMarks()
+    {
+        $this->Mark->deleteAll(array('1=1', true));
+
+        $studentIds = $this->Mark->Student->find('all', array('fields' => array('Student.id')));
+        $subjectIds = $this->Mark->Subject->find('all', array('fields' => array('Subject.id')));
+
+        $studentCount = count($studentIds);
+        $subjectCount = count($subjectIds);
+
+        $marks = array();
+
+        for ($i = 0; $i < $studentCount * 2; $i++) {
+            $newMark = array(
+                'student_id' => $studentIds[rand(0, $studentCount - 1)]['Student']['id'],
+                'subject_id' => $subjectIds[rand(0, $subjectCount - 1)]['Subject']['id'],
+                'mark' => rand(0, 20)
+            );
+
+            array_push($marks, $newMark);
+        }
+
+        foreach ($marks as $mark) {
+            $this->Mark->create();
+            $this->Mark->save($mark);
+        }
+
+        return $this->redirect(array('controller' => 'home', 'action' => 'display'));
+    }
+
 }

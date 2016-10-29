@@ -9,6 +9,12 @@
             array('class' => 'btn btn-primary')
         ); ?>
 
+        <?= $this->Form->postLink(
+            'Générer des notes',
+            array('controller' => 'marks', 'action' => 'populateMarks'),
+            array('class' => 'btn btn-primary')
+        ); ?>
+
         <?= $this->element('Tables/mark', array('mark' => $marks)); ?>
     </div>
 </div>
@@ -24,6 +30,12 @@
             array('class' => 'btn btn-primary')
         ); ?>
 
+        <?= $this->Form->postLink(
+            'Générer des matières',
+            array('controller' => 'subjects', 'action' => 'populateSubjects'),
+            array('class' => 'btn btn-primary')
+        ); ?>
+
         <?= $this->element('Tables/subject', array('subject' => $subjects)); ?>
     </div>
 </div>
@@ -36,6 +48,12 @@
         <?= $this->Html->link(
             'Gérer les élèves',
             array('controller' => 'students', 'action' => 'index'),
+            array('class' => 'btn btn-primary')
+        ); ?>
+
+        <?= $this->Form->postLink(
+            'Générer des élèves',
+            array('controller' => 'students', 'action' => 'populateStudents'),
             array('class' => 'btn btn-primary')
         ); ?>
 

@@ -90,4 +90,44 @@ class StudentsController extends AppController
 
         return $this->redirect(array('action' => 'index'));
     }
+
+    public function populateStudents()
+    {
+        $this->Student->deleteAll(array('1=1', true));
+
+        $students = array(
+            array(
+                'firstname' => "Linus",
+                'lastname' => "Torvalds",
+                'birthdate' => "1969-12-28"
+            ),
+            array(
+                'firstname' => "Dennis",
+                'lastname' => "MacAlistair Ritchie",
+                'birthdate' => "1941-09-09"
+            ),
+            array(
+                'firstname' => "Richard",
+                'lastname' => "Stallman",
+                'birthdate' => "1953-03-16"
+            ),
+            array(
+                'firstname' => "Alan",
+                'lastname' => "Turing",
+                'birthdate' => "1912-06-23"
+            ),
+            array(
+                'firstname' => "Stephen",
+                'lastname' => "Wozniak",
+                'birthdate' => "1950-08-11"
+            )
+        );
+
+        foreach ($students as $student) {
+            $this->Student->create();
+            $this->Student->save($student);
+        }
+
+        return $this->redirect(array('controller' => 'home', 'action' => 'display'));
+    }
 }
