@@ -15,6 +15,27 @@ class Student extends AppModel
         )
     );
 
+    public $validate = array(
+        'firstname' => array(
+            'rule' => 'notBlank',
+            'message' => 'Vous devez attribuer un prénom à l\'élève !'
+        ),
+        'lastname' => array(
+            'rule' => 'notBlank',
+            'message' => 'Vous devez attribuer un nom à l\'élève'
+        ),
+        'birthdate' => array(
+            'validDate' => array(
+                'rule' => 'date',
+                'message' => 'Vous devez entre une date valide !'
+            ),
+            'notBlank' => array(
+                'rule' => 'notBlank',
+                'message' => 'Vous devez entre une date valide !'
+            ),
+        ),
+    );
+
     public function findRegisteredForList()
     {
         $students = $this->find(
