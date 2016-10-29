@@ -1,3 +1,7 @@
+<?php
+$this->Html->addCrumb('Matières');
+?>
+
 <h1>Gestion des matières</h1>
 
 <?= $this->Html->link(

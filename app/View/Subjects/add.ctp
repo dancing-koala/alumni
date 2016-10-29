@@ -1,3 +1,8 @@
+<?php
+$this->Html->addCrumb('Matières', array('controller' => 'subjects', 'action' => 'index'));
+$this->Html->addCrumb('Ajouter une matière');
+?>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="text-center">Ajouter une matière</h4>

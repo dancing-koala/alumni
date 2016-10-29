@@ -1,3 +1,8 @@
+<?php
+$this->Html->addCrumb('Notes', array('controller' => 'marks', 'action' => 'index'));
+$this->Html->addCrumb('Ajouter une note');
+?>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="text-center">Ajouter une note</h4>

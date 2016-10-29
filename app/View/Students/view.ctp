@@ -1,3 +1,8 @@
+<?php
+$this->Html->addCrumb('Élèves', array('controller' => 'students', 'action' => 'index'));
+$this->Html->addCrumb('Détails de l\'élève');
+?>
+
 <div class="panel panel-default">
     <div class="panel-body">
         <h2 class="center-block text-center"><?= $student['Student']['firstname'] . " " . $student['Student']['lastname'] ?></h2>

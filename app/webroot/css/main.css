@@ -46,6 +46,10 @@ body,
     cursor: pointer;
 }
 
+.breadcrumb > li.last {
+    color: #777;
+}
+
 #container {
     background: white;
     position: absolute;

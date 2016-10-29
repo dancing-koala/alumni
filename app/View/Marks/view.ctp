@@ -1,4 +1,8 @@
-<?php //var_dump($mark) ?>
+<?php
+$this->Html->addCrumb('Notes', array('controller' => 'marks', 'action' => 'index'));
+$this->Html->addCrumb('Détails de la note');
+?>
+
 <div class="panel panel-default">
     <div class="panel-body">
         <h2 class="center-block text-center">Note</h2>

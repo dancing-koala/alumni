@@ -1,3 +1,8 @@
+<?php
+$this->Html->addCrumb('Matières', array('controller' => 'subjects', 'action' => 'index'));
+$this->Html->addCrumb('Détails de la matière');
+?>
+
 <div class="panel panel-default">
     <div class="panel-body">
         <h2 class="center-block text-center"><?= $subject['Subject']['name'] ?></h2>

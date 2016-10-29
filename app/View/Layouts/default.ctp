@@ -33,6 +33,18 @@
             </nav>
         </div>
 
+        <div id="breacrumbs-wrapper" class="container">
+            <?= $this->Html->getCrumbList(
+                array(
+                    'class' => 'breadcrumb'
+                ),
+                array(
+                    'text' => "<span class='glyphicon glyphicon-home'></span>",
+                    'url' => array('controller' => 'home', 'action' => 'display'),
+                    'escape' => false,
+                )); ?>
+        </div>
+
         <div id="content" class="container">
             <?php echo $this->Flash->render(); ?>
             <?php echo $this->fetch('content'); ?>

@@ -1,4 +1,7 @@
 <?php
+$this->Html->addCrumb('Notes', array('controller' => 'marks', 'action' => 'index'));
+$this->Html->addCrumb('Modifier une note');
+
 $studentName = $this->request->data['Student']['firstname'] . " " . $this->request->data['Student']['lastname'];
 $subject = $this->request->data['Subject']['name'];
 ?>

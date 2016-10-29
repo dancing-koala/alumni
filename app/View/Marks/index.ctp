@@ -1,3 +1,5 @@
+<?php $this->Html->addCrumb('Notes'); ?>
+
 <h1>Gestion des notes</h1>
 
 <?= $this->Html->link(

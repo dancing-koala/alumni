@@ -1,3 +1,7 @@
+<?php
+$this->Html->addCrumb('Élèves');
+?>
+
 <h1>Gestion des élèves</h1>
 
 <?= $this->Html->link(

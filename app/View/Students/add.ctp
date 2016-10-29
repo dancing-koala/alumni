@@ -1,3 +1,8 @@
+<?php
+$this->Html->addCrumb('Élèves', array('controller' => 'students', 'action' => 'index'));
+$this->Html->addCrumb('Ajouter un élève');
+?>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h4 class="text-center">Ajouter un élève</h4>
