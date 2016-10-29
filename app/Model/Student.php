@@ -27,11 +27,11 @@ class Student extends AppModel
         'birthdate' => array(
             'validDate' => array(
                 'rule' => 'date',
-                'message' => 'Vous devez entre une date valide !'
+                'message' => 'Vous devez entrer une date valide !'
             ),
             'notBlank' => array(
                 'rule' => 'notBlank',
-                'message' => 'Vous devez entre une date valide !'
+                'message' => 'Vous devez entrer une date valide !'
             ),
         ),
     );

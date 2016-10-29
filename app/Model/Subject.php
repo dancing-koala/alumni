@@ -15,6 +15,13 @@ class Subject extends AppModel
         )
     );
 
+    public $validate = array(
+        'name' => array(
+            'rule' => 'notBlank',
+            'message' => 'Vous devez attribuer un nom à la matière !'
+        )
+    );
+
     public function findAvailableForList()
     {
         $subjects = $this->Mark->Subject->find(
