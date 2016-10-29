@@ -55,4 +55,43 @@ class MarksController extends AppController
         $this->set('marks', $marks);
     }
 
+    public function edit($id = null)
+    {
+        if (!$id) throw new NotFoundException(self::MARK_NOT_FOUND);
+
+        $mark = $this->Mark->findById($id);
+
+        if (!$mark) throw new NotFoundException(self::MARK_NOT_FOUND);
+
+        // If the request is a put or a post, we attempt to save it as a new Mark
+        if ($this->request->is(array('put', 'post'))) {
+            $this->Mark->id = $mark['Mark']['id'];
+
+            if ($this->Mark->save($this->request->data)) {
+                $this->Flash->success(self::MARK_EDITED);
+                return $this->redirect(array('action' => 'index'));
+            }
+        }
+
+        // If there is no data in the request, we put the mark data in there
+        // in order to fill the form's fields.
+        if (!$this->request->data) {
+            $this->request->data = $mark;
+        }
+
+        // We only retrieve currently registered students ordered by lastname
+        $students = $this->Mark->Student->findRegisteredForList();
+
+        // We only retrieve currently available subjects ordered by name
+        $subjects = $this->Mark->Subject->findAvailableForList();
+
+        // We generate a list of mark from 0 to 20
+        $marks = $this->Mark->generateMarkList();
+
+        // We pass the data to the view
+        $this->set('subjects', $subjects);
+        $this->set('students', $students);
+        $this->set('marks', $marks);
+    }
+
 }
